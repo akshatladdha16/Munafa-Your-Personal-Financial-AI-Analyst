@@ -1,12 +1,3 @@
-ipykernel
-psycopg2
-pymysql
-kafka-python-ng
-aiomysql
-jwt
-bcrypt
-watchdog
-
 #agentic ai
 phidata
 openai 
