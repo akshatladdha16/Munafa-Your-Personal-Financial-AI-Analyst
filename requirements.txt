@@ -1,0 +1,21 @@
+ipykernel
+psycopg2
+pymysql
+kafka-python-ng
+aiomysql
+jwt
+bcrypt
+watchdog
+
+#agentic ai
+phidata
+openai 
+python-dotenv
+yfinance
+packaging
+duckduckgo-search
+fastapi
+uvicorn
+groq
+python-multipart
+streamlit
