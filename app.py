@@ -94,7 +94,6 @@ from phi.model.groq import Groq
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.yfinance import YFinanceTools
 import openai
-import os
 
 def initialize_session_state():
     if "messages" not in st.session_state:
@@ -109,6 +108,7 @@ def api_key_page():
     api_key = st.text_input("Please enter your OpenAI API Key:", type="password")
     if st.button("Submit"):
         if api_key:
+            openai.api_key=api_key
             st.session_state.openai_api_key = api_key
             st.session_state.page = "chat"
             st.rerun()  # Changed from experimental_rerun to rerun
