@@ -10,6 +10,4 @@ uvicorn
 groq
 python-multipart
 streamlit
-openbb
-duckdb
 boto3
