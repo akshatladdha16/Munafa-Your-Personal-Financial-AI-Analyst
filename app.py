@@ -5,6 +5,8 @@ from phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.yfinance import YFinanceTools
 from dotenv import load_dotenv
 load_dotenv()
+import os
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = []
