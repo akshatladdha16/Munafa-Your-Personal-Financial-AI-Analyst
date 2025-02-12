@@ -15,7 +15,7 @@ def get_agents():
         web_agent = Agent(
             name="WebSearchAgent",
             role="Search web for the information",
-            model=Groq(id="llama-3.3-70b-versatile"),
+            model=Groq(id="deepseek-r1-distill-llama-70b"),
             tools=[DuckDuckGo()], #used for search engine
             instructions=["Always include sources"],
             show_tool_calls=True,
@@ -23,7 +23,7 @@ def get_agents():
         )
         finance_agent = Agent(
             name="FinanceAgent",
-            model=Groq(id="llama-3.3-70b-versatile"),
+            model=Groq(id="deepseek-r1-distill-llama-70b"),
             tools=[YFinanceTools(
                 stock_price=True,
                 analyst_recommendations=True,
@@ -41,7 +41,7 @@ def process_user_query(user_input):
     
     multimodal_agent = Agent(
         # need to give model here as by default any agent takes up Open AI key as it's model
-        model=Groq(id="llama-3.3-70b-versatile"),
+        model=Groq(id="deepseek-r1-distill-llama-70b"),
         team=[web_agent,finance_agent],    
         instructions=["Use the web agent to search internet sources and the finance agent to find financial data and analyst buy/sell/hold recommendations with valid reasons."],
         show_tool_calls=True,
