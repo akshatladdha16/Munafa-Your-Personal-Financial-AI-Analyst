@@ -1,11 +1,8 @@
 import streamlit as st
-from phi.tools.openbb_tools import OpenBBTools
 from phi.agent import Agent ,RunResponse
 from phi.model.groq import Groq
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.yfinance import YFinanceTools
-import openai
-import os
 from dotenv import load_dotenv
 load_dotenv()
 def initialize_session_state():
