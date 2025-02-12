@@ -8,7 +8,7 @@ load_dotenv()
 def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = []
-
+api_key = st.secrets["GROQ_API_KEY"]
 def get_agents():
         web_agent = Agent(
             name="WebSearchAgent",
