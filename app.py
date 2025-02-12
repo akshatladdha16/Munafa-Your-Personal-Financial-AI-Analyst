@@ -6,11 +6,11 @@ from phi.tools.yfinance import YFinanceTools
 from dotenv import load_dotenv
 load_dotenv()
 import os
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
 def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = []
-api_key = st.secrets["GROQ_API_KEY"]
+api_key = st.secrets["GROQ_API_KEY2"]
 def get_agents():
         web_agent = Agent(
             name="WebSearchAgent",
