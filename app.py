@@ -118,7 +118,7 @@ def get_agents():
         role="Search web for the information",
         model=Groq(id="llama-3.3-70b-versatile"),
         tools=[DuckDuckGo()], # used for search engine
-        instructions=["Include sources link and use tables to display the data."],
+        instructions=["Always include sources links and use tables to display the numerical data."],
         show_tool_calls=False,  # Set to False to hide logs
         markdown=True,
     )
@@ -130,7 +130,7 @@ def get_agents():
             analyst_recommendations=True,
             stock_fundamentals=True,
         )],
-        instructions=["Use tables to display the data"],
+        instructions=["Always include source/article links and use tables to display the numerical data or comparing different companies"],
         show_tool_calls=False,  # Set to False to hide logs
         markdown=True,
     )
@@ -143,7 +143,7 @@ def process_user_query(user_input):
     multimodal_agent = Agent(
         model=Groq(id="llama-3.3-70b-versatile"),
         team=[web_agent, finance_agent],    
-        instructions=["Use the web agent to search internet sources and the finance agent to find financial data and analyst buy/sell/hold recommendations with valid reasons."],
+        instructions=["Use the web agent to search internet sources and the finance agent to find financial data and analyst buy/sell/hold recommendations with valid reasons and source links."],
         show_tool_calls=False,  # Set to False to hide logs
         markdown=True,
     )
