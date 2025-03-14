@@ -1,3 +1,5 @@
+# local source code
+
 # import streamlit as st
 # from phi.agent import Agent, RunResponse
 # from phi.model.groq import Groq
@@ -20,7 +22,8 @@
 #         role="Search web for the information",
 #         model=Groq(id="llama-3.3-70b-versatile"),
 #         tools=[DuckDuckGo()], # used for search engine
-#         instructions=["Include sources link and use tables to display the data."],
+#         description="You are a web search agent that only helps in financial queries. You can search the web for the latest financial news and information.",
+#         instructions=["Always include source/article links."],
 #         show_tool_calls=False,  # Set to False to hide logs
 #         markdown=True,
 #     )
@@ -32,8 +35,8 @@
 #             analyst_recommendations=True,
 #             stock_fundamentals=True,
 #         )],
-#         # description="You are an investment analyst that researches stock prices, analyst recommendations, and stock fundamentals.",
-#         instructions=["Use tables to display the data"],
+#         description="You are an investment analyst that researches stock prices, analyst recommendations, and stock fundamentals.",
+#         instructions=["Always include source/article links and use tables to display the numerical data and analyst recommendations."],
 #         show_tool_calls=False,  # Set to False to hide logs
 #         markdown=True,
 #     )
@@ -94,6 +97,8 @@
 # if __name__ == "__main__":
 #     main()
 
+#github source code 
+
 import streamlit as st
 from phi.agent import Agent, RunResponse
 from phi.model.groq import Groq
@@ -118,7 +123,8 @@ def get_agents():
         role="Search web for the information",
         model=Groq(id="llama-3.3-70b-versatile"),
         tools=[DuckDuckGo()], # used for search engine
-        instructions=["Always include sources links and use tables to display the numerical data."],
+        description="You are a web search agent that only helps in financial queries. You can search the web for the latest financial news and information. Only cater cater financial related queries, revert with caution if the query is not financial related.",
+        instructions=["Always include source/article links."],
         show_tool_calls=False,  # Set to False to hide logs
         markdown=True,
     )
@@ -130,7 +136,8 @@ def get_agents():
             analyst_recommendations=True,
             stock_fundamentals=True,
         )],
-        instructions=["Always include source/article links and use tables to display the numerical data or comparing different companies"],
+        description="You are an investment analyst that researches stock prices, analyst recommendations, and stock fundamentals.",
+        instructions=["Always include source/article links and use tables to display the numerical data and analyst recommendations."],
         show_tool_calls=False,  # Set to False to hide logs
         markdown=True,
     )
@@ -157,7 +164,7 @@ def process_user_query(user_input):
 
 def main():
     st.title("Munafa: Your Personal AI Financial Assistant")
-    st.markdown("Welcome to Munafa, your personal AI financial assistant. Ask me anything related to finance, stocks, buy/sell/hold recommendations, and the latest news. I will try to help you out to my level best.")
+    st.markdown("Welcome to Munafa, your personal AI financial assistant. Keep ypur queries related to finance, stocks, buy/sell/hold recommendations, and the latest financial news. I will try to help you out to my level best.")
     
     # Initialize session state
     initialize_session_state()
