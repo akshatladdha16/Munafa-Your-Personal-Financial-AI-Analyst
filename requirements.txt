@@ -11,3 +11,5 @@ groq
 python-multipart
 streamlit
 boto3
+langgraph
+langchain-groq
